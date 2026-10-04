@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Conjugaison italienne — exercice autocorrigé</title>
+<style>
+:root{
+  --ink:#1E2A36; --muted:#5B6672; --line:#D5DAE0; --bg:#F5F6F8; --card:#FFFFFF;
+  --head:#2C3E50; --primary:#1F5FA8; --red:#C0392B;
+  --ok:#2E8B57; --ok-bg:#E3F4EA; --ko:#C0392B; --ko-bg:#FBE6E3; --acc:#B7791F; --acc-bg:#FDF1DC;
+  --are:#E8A25B; --are-bg:#FDF0E1; --ere:#6FA85A; --ere-bg:#EAF4E4;
+  --ire:#5B8FC9; --ire-bg:#E6EEF8; --isc:#8E6BB8; --isc-bg:#EFE8F6;
+  --av:#C0392B; --av-bg:#FBEDEB; --es:#1F5FA8; --es-bg:#E8F0FA;
+  --given:#EEF0F3;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --ink:#E6EAF0; --muted:#9AA5B1; --line:#3A4552; --bg:#151B22; --card:#1D252E;
+    --head:#2F4458; --primary:#6FA3E0;
+    --ok:#5CC48A; --ok-bg:#1E3A2B; --ko:#F0857A; --ko-bg:#432423; --acc:#E7B055; --acc-bg:#3F3220;
+    --are-bg:#3A2D1F; --ere-bg:#24341F; --ire-bg:#1F2C3B; --isc-bg:#2D2538; --av-bg:#3B2422; --es-bg:#1F2C3B;
+    --given:#27313C;
+  }
+}
+:root[data-theme="dark"]{
+    --ink:#E6EAF0; --muted:#9AA5B1; --line:#3A4552; --bg:#151B22; --card:#1D252E;
+    --head:#2F4458; --primary:#6FA3E0;
+    --ok:#5CC48A; --ok-bg:#1E3A2B; --ko:#F0857A; --ko-bg:#432423; --acc:#E7B055; --acc-bg:#3F3220;
+    --are-bg:#3A2D1F; --ere-bg:#24341F; --ire-bg:#1F2C3B; --isc-bg:#2D2538; --av-bg:#3B2422; --es-bg:#1F2C3B;
+    --given:#27313C;
+}
+*{box-sizing:border-box}
+:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;background:var(--bg);color:var(--ink);
+  font:15px/1.45 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif}
+.wrap{max-width:1240px;margin:0 auto;padding:18px 14px 110px}
+h1{font-size:1.45rem;margin:0 0 4px;letter-spacing:-.01em}
+.intro{color:var(--muted);margin:0 0 16px;max-width:75ch}
+.panel{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:12px 14px;margin-bottom:14px}
+.row{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:6px 0}
+.row > .lab{font-weight:600;min-width:120px;color:var(--muted);font-size:.9rem}
+.tabs{display:flex;gap:6px;margin-bottom:10px}
+.tab{border:1px solid var(--line);background:var(--card);color:var(--ink);padding:8px 14px;border-radius:8px;font:inherit;font-weight:600;cursor:pointer}
+.tab[aria-selected="true"]{background:var(--head);color:#fff;border-color:var(--head)}
+.chip{display:inline-flex;align-items:center;gap:6px;border:1px solid var(--line);border-radius:999px;padding:4px 11px;cursor:pointer;font-size:.88rem;user-select:none;background:var(--card)}
+.chip input{margin:0;accent-color:var(--primary)}
+.chip:has(input:checked){border-color:var(--primary);background:color-mix(in srgb,var(--primary) 10%,var(--card))}
+select{font:inherit;padding:4px 8px;border-radius:6px;border:1px solid var(--line);background:var(--card);color:var(--ink)}
+button.act{font:inherit;font-weight:600;border-radius:8px;padding:8px 14px;cursor:pointer;border:1px solid var(--line);background:var(--card);color:var(--ink)}
+button.act.primary{background:var(--primary);border-color:var(--primary);color:#fff}
+button:focus-visible,input:focus-visible,select:focus-visible{outline:2px solid var(--primary);outline-offset:2px}
+.score{font-weight:600;margin-left:auto;font-size:.95rem}
+.score .ok{color:var(--ok)} .score .acc{color:var(--acc)} .score .ko{color:var(--ko)}
+
+.group{margin-bottom:18px}
+.group h2{font-size:1.05rem;margin:0 0 6px;display:flex;align-items:center;gap:8px}
+.group h2 .sw{width:12px;height:12px;border-radius:3px;display:inline-block}
+.group h2 small{font-weight:400;color:var(--muted)}
+.scroll{overflow-x:auto;border:1px solid var(--line);border-radius:8px;background:var(--card)}
+table{border-collapse:collapse;width:100%;min-width:max-content}
+th,td{border:1px solid var(--line);padding:4px;text-align:center;vertical-align:top}
+thead th{background:var(--head);color:#fff;font-size:.82rem;line-height:1.2;padding:6px 6px;min-width:132px}
+thead th i{display:block;font-weight:400;opacity:.8;font-size:.75rem}
+tbody th{position:sticky;left:0;z-index:1;font-size:.88rem;min-width:62px;vertical-align:middle;background:var(--rowbg)}
+tbody td{background:var(--rowbg)}
+td input{width:100%;min-width:122px;font:inherit;font-size:.95rem;padding:5px 6px;border:1px solid var(--line);border-radius:5px;background:var(--card);color:var(--ink);text-align:center}
+td.given input{background:var(--given);color:var(--muted);border-style:dashed}
+td.ok input{border-color:var(--ok);background:var(--ok-bg)}
+td.acc input{border-color:var(--acc);background:var(--acc-bg)}
+td.ko input{border-color:var(--ko);background:var(--ko-bg)}
+td .sol{display:block;font-size:.78rem;margin-top:2px;min-height:0}
+td.ko .sol{color:var(--ko)} td.acc .sol{color:var(--acc)} td.shown .sol{color:var(--red)}
+td.na{color:var(--muted);vertical-align:middle}
+
+.accbar{position:fixed;left:0;right:0;bottom:0;z-index:5;background:var(--card);border-top:1px solid var(--line);
+  padding:8px 12px calc(8px + env(safe-area-inset-bottom,0px));display:flex;gap:6px;justify-content:center;flex-wrap:wrap}
+.accbar span{color:var(--muted);font-size:.85rem;align-self:center;margin-right:4px}
+.accbar button{font:inherit;font-size:1.05rem;width:42px;height:38px;border-radius:8px;border:1px solid var(--line);background:var(--bg);color:var(--ink);cursor:pointer}
+.legend{font-size:.85rem;color:var(--muted)}
+.legend b.ok{color:var(--ok)} .legend b.acc{color:var(--acc)} .legend b.ko{color:var(--ko)}
+@media (max-width:640px){ .row > .lab{min-width:100%} .score{margin-left:0;width:100%} }
+@media (prefers-reduced-motion: reduce){*{transition:none!important}}
+
+.vname{font-weight:700}
+.vtr{font-weight:400;color:var(--muted);font-style:italic}
+.irr-note{color:var(--muted);font-size:.9rem}
+.hidden{display:none!important}
+tr.part th{font-weight:600;font-size:.8rem}
+</style>
+<link rel="manifest" href="manifest.json">
+<link rel="apple-touch-icon" href="icon-180.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Conjugaison">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="theme-color" content="#2C3E50">
+</head>
+<body>
+<div class="wrap">
+  <h1>Conjugaison italienne — exercice autocorrigé</h1>
+  <p class="intro">Remplissez les cases, puis cliquez sur <b>Vérifier</b>. <b>Changer de verbes</b> tire de nouveaux verbes au hasard. Entrée passe à la case suivante (de haut en bas). Pour les accents, utilisez la barre en bas de l'écran ou tapez une apostrophe après la voyelle : <i>parlo'</i> devient <i>parlò</i>. Vos réponses sont conservées dans ce navigateur.</p>
+
+  <div class="panel">
+    <div class="tabs" role="tablist">
+      <button class="tab" role="tab" data-mode="simple">Temps simples</button>
+      <button class="tab" role="tab" data-mode="comp">Temps composés</button>
+      <button class="tab" role="tab" data-mode="irr">Verbes irréguliers</button>
+    </div>
+    <div class="row" id="rowGroups"><span class="lab">Groupes</span><span id="fGroups" class="row" style="margin:0"></span></div>
+    <div class="row hidden" id="rowIrr"><span class="lab">Verbes</span>
+      <select id="irrN" aria-label="Nombre de verbes affichés">
+        <option value="1">1 verbe à la fois</option><option value="2">2 verbes à la fois</option>
+        <option value="3">3 verbes à la fois</option><option value="4">4 verbes à la fois</option>
+      </select>
+      <span class="irr-note" id="irrNote"></span>
+    </div>
+    <div class="row"><span class="lab">Temps</span><span id="fTenses" class="row" style="margin:0"></span></div>
+    <div class="row"><span class="lab">Aide</span>
+      <select id="hint" aria-label="Cases déjà remplies">
+        <option value="0">Tableau entièrement vide</option>
+        <option value="25">25 % des cases données</option>
+        <option value="50">50 % des cases données</option>
+      </select>
+      <label class="chip"><input type="checkbox" id="live"> Correction immédiate</label>
+    </div>
+    <div class="row" style="margin-top:10px">
+      <button class="act primary" id="bCheck">Vérifier</button>
+      <button class="act" id="bNew">Changer de verbes</button>
+      <button class="act" id="bWrong">Effacer les erreurs</button>
+      <button class="act" id="bSol">Afficher les solutions</button>
+      <button class="act" id="bClear">Tout effacer</button>
+      <span class="score" id="score" aria-live="polite"></span>
+    </div>
+    <div class="legend"><b class="ok">Vert</b> : juste · <b class="acc">Orange</b> : accent manquant ou erroné · <b class="ko">Rouge</b> : faux (la solution s'affiche sous la case)</div>
+  </div>
+
+  <div id="tables"></div>
+</div>
+
+<div class="accbar" aria-label="Insérer une voyelle accentuée">
+  <span>Accents</span>
+  <button data-c="à">à</button><button data-c="è">è</button><button data-c="é">é</button>
+  <button data-c="ì">ì</button><button data-c="ò">ò</button><button data-c="ù">ù</button>
+</div>
+
+<script>
+/* ================= Données ================= */
+const P=["io","tu","lui / lei","noi","voi","loro"];
+const SIMPLE_T=[
+ {k:"pres",it:"Presente",fr:"Présent"},{k:"imp",it:"Imperfetto",fr:"Imparfait"},
+ {k:"rem",it:"Passato remoto",fr:"Passé simple"},{k:"fut",it:"Futuro semplice",fr:"Futur"},
+ {k:"cond",it:"Condizionale presente",fr:"Conditionnel présent"},{k:"cpres",it:"Congiuntivo presente",fr:"Subjonctif présent"},
+ {k:"cimp",it:"Congiuntivo imperfetto",fr:"Subjonctif imparfait"},{k:"impv",it:"Imperativo",fr:"Impératif"}];
+const COMP_T=[
+ {k:"pp",it:"Passato prossimo",fr:"Passé composé"},{k:"tp",it:"Trapassato prossimo",fr:"Plus-que-parfait"},
+ {k:"tr",it:"Trapassato remoto",fr:"Passé antérieur"},{k:"fa",it:"Futuro anteriore",fr:"Futur antérieur"},
+ {k:"cp",it:"Condizionale passato",fr:"Conditionnel passé"},{k:"cgp",it:"Congiuntivo passato",fr:"Subjonctif passé"},
+ {k:"cgt",it:"Congiuntivo trapassato",fr:"Subj. plus-que-parfait"}];
+
+/* --- verbes réguliers : terminaisons --- */
+const END={
+ are:{pres:["o","i","a","iamo","ate","ano"],imp:["avo","avi","ava","avamo","avate","avano"],
+  rem:["ai","asti","ò","ammo","aste","arono"],fut:["erò","erai","erà","eremo","erete","eranno"],
+  cond:["erei","eresti","erebbe","eremmo","ereste","erebbero"],cpres:["i","i","i","iamo","iate","ino"],
+  cimp:["assi","assi","asse","assimo","aste","assero"],impv:[null,"a","i","iamo","ate","ino"]},
+ ere:{pres:["o","i","e","iamo","ete","ono"],imp:["evo","evi","eva","evamo","evate","evano"],
+  rem:[["ei","etti"],"esti",["é","ette"],"emmo","este",["erono","ettero"]],fut:["erò","erai","erà","eremo","erete","eranno"],
+  cond:["erei","eresti","erebbe","eremmo","ereste","erebbero"],cpres:["a","a","a","iamo","iate","ano"],
+  cimp:["essi","essi","esse","essimo","este","essero"],impv:[null,"i","a","iamo","ete","ano"]},
+ ire:{pres:["o","i","e","iamo","ite","ono"],imp:["ivo","ivi","iva","ivamo","ivate","ivano"],
+  rem:["ii","isti","ì","immo","iste","irono"],fut:["irò","irai","irà","iremo","irete","iranno"],
+  cond:["irei","iresti","irebbe","iremmo","ireste","irebbero"],cpres:["a","a","a","iamo","iate","ano"],
+  cimp:["issi","issi","isse","issimo","iste","issero"],impv:[null,"i","a","iamo","ite","ano"]},
+ isc:{pres:["isco","isci","isce","iamo","ite","iscono"],imp:["ivo","ivi","iva","ivamo","ivate","ivano"],
+  rem:["ii","isti","ì","immo","iste","irono"],fut:["irò","irai","irà","iremo","irete","iranno"],
+  cond:["irei","iresti","irebbe","iremmo","ireste","irebbero"],cpres:["isca","isca","isca","iamo","iate","iscano"],
+  cimp:["issi","issi","isse","issimo","iste","issero"],impv:[null,"isci","isca","iamo","ite","iscano"]}};
+
+/* -care/-gare : h devant e/i ; -iare : le i tombe devant i ; -ciare/-giare : le i tombe aussi devant e */
+function joinAre(s,e){
+  if(/^[ei]/.test(e)){
+    if(/[cg]$/.test(s)) return s+"h"+e;
+    if(/i$/.test(s)&&(e[0]==="i"||/[cg]i$/.test(s))) return s.slice(0,-1)+e;
+  }
+  return s+e;
+}
+const POOL={
+ are:[["parlare","parler"],["cantare","chanter"],["lavorare","travailler"],["abitare","habiter"],["ascoltare","écouter"],
+  ["aspettare","attendre"],["comprare","acheter"],["guardare","regarder"],["trovare","trouver"],["pensare","penser"],
+  ["camminare","marcher"],["ballare","danser"],["lavare","laver"],["portare","porter, apporter"],["chiamare","appeler"],
+  ["imparare","apprendre"],["insegnare","enseigner"],["sognare","rêver"],["cercare","chercher"],["pagare","payer"],
+  ["giocare","jouer"],["spiegare","expliquer"],["dimenticare","oublier"],["mangiare","manger"],["cominciare","commencer"],
+  ["viaggiare","voyager"],["lasciare","laisser"],["studiare","étudier"],["cambiare","changer"]],
+ ere:[["vendere","vendre"],["credere","croire"],["ricevere","recevoir"],["temere","craindre"],["cedere","céder"],
+  ["premere","appuyer, presser"],["battere","battre",1],["ripetere","répéter",1]],
+ ire:[["dormire","dormir"],["partire","partir"],["sentire","entendre, sentir"],["aprire","ouvrir"],["servire","servir"],
+  ["seguire","suivre"],["fuggire","fuir"],["vestire","habiller"],["coprire","couvrir"],["offrire","offrir"],["bollire","bouillir"]],
+ isc:[["finire","finir"],["capire","comprendre"],["preferire","préférer"],["pulire","nettoyer"],["spedire","envoyer, expédier"],
+  ["costruire","construire"],["colpire","frapper"],["guarire","guérir"],["unire","unir"],["tradire","trahir"]]};
+const GROUPS=[{k:"are",lab:"-ARE",c:"--are"},{k:"ere",lab:"-ERE",c:"--ere"},{k:"ire",lab:"-IRE",c:"--ire"},{k:"isc",lab:"-IRE (-isc-)",c:"--isc"}];
+
+function conjRegular(g,[inf,fr,noEtti]){
+  const s=inf.slice(0,-3), f={};
+  for(const t in END[g]) f[t]=END[g][t].map(e=>{
+    if(e===null) return null;
+    let alts=(Array.isArray(e)?e:[e]); if(noEtti) alts=alts.filter(x=>!x.includes("ett"));
+    return alts.map(x=>g==="are"?joinAre(s,x):s+x);
+  });
+  return f;
+}
+
+/* --- temps composés --- */
+const AUX={
+ av:{pp:["ho","hai","ha","abbiamo","avete","hanno"],tp:["avevo","avevi","aveva","avevamo","avevate","avevano"],
+  tr:["ebbi","avesti","ebbe","avemmo","aveste","ebbero"],fa:["avrò","avrai","avrà","avremo","avrete","avranno"],
+  cp:["avrei","avresti","avrebbe","avremmo","avreste","avrebbero"],cgp:["abbia","abbia","abbia","abbiamo","abbiate","abbiano"],
+  cgt:["avessi","avessi","avesse","avessimo","aveste","avessero"]},
+ es:{pp:["sono","sei","è","siamo","siete","sono"],tp:["ero","eri","era","eravamo","eravate","erano"],
+  tr:["fui","fosti","fu","fummo","foste","furono"],fa:["sarò","sarai","sarà","saremo","sarete","saranno"],
+  cp:["sarei","saresti","sarebbe","saremmo","sareste","sarebbero"],cgp:["sia","sia","sia","siamo","siate","siano"],
+  cgt:["fossi","fossi","fosse","fossimo","foste","fossero"]}};
+const CPOOL={
+ av:[["parlare","parler","parlato"],["vendere","vendre","venduto"],["finire","finir","finito"],["mangiare","manger","mangiato"],
+  ["fare","faire","fatto"],["dire","dire","detto"],["leggere","lire","letto"],["scrivere","écrire","scritto"],
+  ["prendere","prendre","preso"],["vedere","voir",["visto","veduto"]],["mettere","mettre","messo"],["aprire","ouvrir","aperto"],
+  ["bere","boire","bevuto"],["chiudere","fermer","chiuso"],["perdere","perdre",["perso","perduto"]],
+  ["chiedere","demander","chiesto"],["rispondere","répondre","risposto"],["scegliere","choisir","scelto"],["vincere","gagner","vinto"]],
+ es:[["partire","partir","partito"],["andare","aller","andato"],["venire","venir","venuto"],["arrivare","arriver","arrivato"],
+  ["tornare","revenir, rentrer","tornato"],["uscire","sortir","uscito"],["entrare","entrer","entrato"],["restare","rester","restato"],
+  ["rimanere","rester, demeurer","rimasto"],["nascere","naître","nato"],["morire","mourir","morto"],["salire","monter","salito"],
+  ["scendere","descendre","sceso"],["cadere","tomber","caduto"],["diventare","devenir","diventato"],["essere","être","stato"]]};
+const CGROUPS=[{k:"av",lab:"avere",c:"--av"},{k:"es",lab:"essere",c:"--es"}];
+function conjComp(g,[inf,fr,part]){
+  const parts=Array.isArray(part)?part:[part], f={};
+  for(const t of COMP_T) f[t.k]=AUX[g][t.k].map((a,i)=>{
+    const ps=g==="av"?parts:parts.flatMap(p=>{const b=p.slice(0,-1);return i<3?[b+"o",b+"a"]:[b+"i",b+"e"];});
+    return ps.map(p=>a+" "+p);
+  });
+  return f;
+}
+
+/* --- verbes irréguliers (temps simples + participe) --- */
+const A=(s,e)=>e.map(x=>s+x);
+const IMP=s=>A(s,["vo","vi","va","vamo","vate","vano"]);
+const FUT=s=>A(s,["ò","ai","à","emo","ete","anno"]);
+const COND=s=>A(s,["ei","esti","ebbe","emmo","este","ebbero"]);
+const CIMP=s=>A(s,["ssi","ssi","sse","ssimo","ste","ssero"]);
+const IRR=[
+ {inf:"essere",fr:"être",part:"stato",aux:"essere",
+  pres:["sono","sei","è","siamo","siete","sono"],imp:["ero","eri","era","eravamo","eravate","erano"],
+  rem:["fui","fosti","fu","fummo","foste","furono"],fut:FUT("sar"),cond:COND("sar"),
+  cpres:["sia","sia","sia","siamo","siate","siano"],cimp:CIMP("fo"),impv:[null,"sii","sia","siamo","siate","siano"]},
+ {inf:"avere",fr:"avoir",part:"avuto",
+  pres:["ho","hai","ha","abbiamo","avete","hanno"],imp:IMP("ave"),
+  rem:["ebbi","avesti","ebbe","avemmo","aveste","ebbero"],fut:FUT("avr"),cond:COND("avr"),
+  cpres:["abbia","abbia","abbia","abbiamo","abbiate","abbiano"],cimp:CIMP("ave"),impv:[null,"abbi","abbia","abbiamo","abbiate","abbiano"]},
+ {inf:"fare",fr:"faire",part:"fatto",
+  pres:["faccio","fai","fa","facciamo","fate","fanno"],imp:IMP("face"),
+  rem:["feci","facesti","fece","facemmo","faceste","fecero"],fut:FUT("far"),cond:COND("far"),
+  cpres:["faccia","faccia","faccia","facciamo","facciate","facciano"],cimp:CIMP("face"),impv:[null,["fa'","fai","fa"],"faccia","facciamo","fate","facciano"]},
+ {inf:"dire",fr:"dire",part:"detto",
+  pres:["dico","dici","dice","diciamo","dite","dicono"],imp:IMP("dice"),
+  rem:["dissi","dicesti","disse","dicemmo","diceste","dissero"],fut:FUT("dir"),cond:COND("dir"),
+  cpres:["dica","dica","dica","diciamo","diciate","dicano"],cimp:CIMP("dice"),impv:[null,["di'","di"],"dica","diciamo","dite","dicano"]},
+ {inf:"andare",fr:"aller",part:"andato",
+  pres:["vado","vai","va","andiamo","andate","vanno"],imp:IMP("anda"),
+  rem:["andai","andasti","andò","andammo","andaste","andarono"],fut:FUT("andr"),cond:COND("andr"),
+  cpres:["vada","vada","vada","andiamo","andiate","vadano"],cimp:CIMP("anda"),impv:[null,["va'","vai","va"],"vada","andiamo","andate","vadano"]},
+ {inf:"venire",fr:"venir",part:"venuto",
+  pres:["vengo","vieni","viene","veniamo","venite","vengono"],imp:IMP("veni"),
+  rem:["venni","venisti","venne","venimmo","veniste","vennero"],fut:FUT("verr"),cond:COND("verr"),
+  cpres:["venga","venga","venga","veniamo","veniate","vengano"],cimp:CIMP("veni"),impv:[null,"vieni","venga","veniamo","venite","vengano"]},
+ {inf:"potere",fr:"pouvoir",part:"potuto",
+  pres:["posso","puoi","può","possiamo","potete","possono"],imp:IMP("pote"),
+  rem:[["potei","potetti"],"potesti",["poté","potette"],"potemmo","poteste",["poterono","potettero"]],fut:FUT("potr"),cond:COND("potr"),
+  cpres:["possa","possa","possa","possiamo","possiate","possano"],cimp:CIMP("pote"),impv:[null,null,null,null,null,null]},
+ {inf:"volere",fr:"vouloir",part:"voluto",
+  pres:["voglio","vuoi","vuole","vogliamo","volete","vogliono"],imp:IMP("vole"),
+  rem:["volli","volesti","volle","volemmo","voleste","vollero"],fut:FUT("vorr"),cond:COND("vorr"),
+  cpres:["voglia","voglia","voglia","vogliamo","vogliate","vogliano"],cimp:CIMP("vole"),impv:[null,null,null,null,null,null]},
+ {inf:"dovere",fr:"devoir",part:"dovuto",
+  pres:[["devo","debbo"],"devi","deve","dobbiamo","dovete",["devono","debbono"]],imp:IMP("dove"),
+  rem:[["dovei","dovetti"],"dovesti",["dové","dovette"],"dovemmo","doveste",["doverono","dovettero"]],fut:FUT("dovr"),cond:COND("dovr"),
+  cpres:[["debba","deva"],["debba","deva"],["debba","deva"],"dobbiamo","dobbiate",["debbano","devano"]],cimp:CIMP("dove"),impv:[null,null,null,null,null,null]},
+ {inf:"sapere",fr:"savoir",part:"saputo",
+  pres:["so","sai","sa","sappiamo","sapete","sanno"],imp:IMP("sape"),
+  rem:["seppi","sapesti","seppe","sapemmo","sapeste","seppero"],fut:FUT("sapr"),cond:COND("sapr"),
+  cpres:["sappia","sappia","sappia","sappiamo","sappiate","sappiano"],cimp:CIMP("sape"),impv:[null,"sappi","sappia","sappiamo","sappiate","sappiano"]},
+ {inf:"stare",fr:"rester, se trouver",part:"stato",
+  pres:["sto","stai","sta","stiamo","state","stanno"],imp:IMP("sta"),
+  rem:["stetti","stesti","stette","stemmo","steste","stettero"],fut:FUT("star"),cond:COND("star"),
+  cpres:["stia","stia","stia","stiamo","stiate","stiano"],cimp:CIMP("ste"),impv:[null,["sta'","stai","sta"],"stia","stiamo","state","stiano"]},
+ {inf:"dare",fr:"donner",part:"dato",
+  pres:["do","dai","dà","diamo","date","danno"],imp:IMP("da"),
+  rem:[["diedi","detti"],"desti",["diede","dette"],"demmo","deste",["diedero","dettero"]],fut:FUT("dar"),cond:COND("dar"),
+  cpres:["dia","dia","dia","diamo","diate","diano"],cimp:CIMP("de"),impv:[null,["da'","dai","dà"],"dia","diamo","date","diano"]},
+ {inf:"tenere",fr:"tenir",part:"tenuto",
+  pres:["tengo","tieni","tiene","teniamo","tenete","tengono"],imp:IMP("tene"),
+  rem:["tenni","tenesti","tenne","tenemmo","teneste","tennero"],fut:FUT("terr"),cond:COND("terr"),
+  cpres:["tenga","tenga","tenga","teniamo","teniate","tengano"],cimp:CIMP("tene"),impv:[null,"tieni","tenga","teniamo","tenete","tengano"]},
+ {inf:"salire",fr:"monter",part:"salito",
+  pres:["salgo","sali","sale","saliamo","salite","salgono"],imp:IMP("sali"),
+  rem:["salii","salisti","salì","salimmo","saliste","salirono"],fut:FUT("salir"),cond:COND("salir"),
+  cpres:["salga","salga","salga","saliamo","saliate","salgano"],cimp:CIMP("sali"),impv:[null,"sali","salga","saliamo","salite","salgano"]},
+ {inf:"uscire",fr:"sortir",part:"uscito",
+  pres:["esco","esci","esce","usciamo","uscite","escono"],imp:IMP("usci"),
+  rem:["uscii","uscisti","uscì","uscimmo","usciste","uscirono"],fut:FUT("uscir"),cond:COND("uscir"),
+  cpres:["esca","esca","esca","usciamo","usciate","escano"],cimp:CIMP("usci"),impv:[null,"esci","esca","usciamo","uscite","escano"]},
+ {inf:"bere",fr:"boire",part:"bevuto",
+  pres:["bevo","bevi","beve","beviamo","bevete","bevono"],imp:IMP("beve"),
+  rem:[["bevvi","bevetti"],"bevesti",["bevve","bevette"],"bevemmo","beveste",["bevvero","bevettero"]],fut:FUT("berr"),cond:COND("berr"),
+  cpres:["beva","beva","beva","beviamo","beviate","bevano"],cimp:CIMP("beve"),impv:[null,"bevi","beva","beviamo","bevete","bevano"]},
+ {inf:"rimanere",fr:"rester, demeurer",part:"rimasto",
+  pres:["rimango","rimani","rimane","rimaniamo","rimanete","rimangono"],imp:IMP("rimane"),
+  rem:["rimasi","rimanesti","rimase","rimanemmo","rimaneste","rimasero"],fut:FUT("rimarr"),cond:COND("rimarr"),
+  cpres:["rimanga","rimanga","rimanga","rimaniamo","rimaniate","rimangano"],cimp:CIMP("rimane"),impv:[null,"rimani","rimanga","rimaniamo","rimanete","rimangano"]},
+ {inf:"porre",fr:"poser, mettre",part:"posto",
+  pres:["pongo","poni","pone","poniamo","ponete","pongono"],imp:IMP("pone"),
+  rem:["posi","ponesti","pose","ponemmo","poneste","posero"],fut:FUT("porr"),cond:COND("porr"),
+  cpres:["ponga","ponga","ponga","poniamo","poniate","pongano"],cimp:CIMP("pone"),impv:[null,"poni","ponga","poniamo","ponete","pongano"]},
+ {inf:"scegliere",fr:"choisir",part:"scelto",
+  pres:["scelgo","scegli","sceglie","scegliamo","scegliete","scelgono"],imp:IMP("sceglie"),
+  rem:["scelsi","scegliesti","scelse","scegliemmo","sceglieste","scelsero"],fut:FUT("sceglier"),cond:COND("sceglier"),
+  cpres:["scelga","scelga","scelga","scegliamo","scegliate","scelgano"],cimp:CIMP("sceglie"),impv:[null,"scegli","scelga","scegliamo","scegliete","scelgano"]},
+ {inf:"tradurre",fr:"traduire",part:"tradotto",
+  pres:["traduco","traduci","traduce","traduciamo","traducete","traducono"],imp:IMP("traduce"),
+  rem:["tradussi","traducesti","tradusse","traducemmo","traduceste","tradussero"],fut:FUT("tradurr"),cond:COND("tradurr"),
+  cpres:["traduca","traduca","traduca","traduciamo","traduciate","traducano"],cimp:CIMP("traduce"),impv:[null,"traduci","traduca","traduciamo","traducete","traducano"]},
+ {inf:"piacere",fr:"plaire",part:"piaciuto",
+  pres:["piaccio","piaci","piace","piacciamo","piacete","piacciono"],imp:IMP("piace"),
+  rem:["piacqui","piacesti","piacque","piacemmo","piaceste","piacquero"],fut:FUT("piacer"),cond:COND("piacer"),
+  cpres:["piaccia","piaccia","piaccia","piacciamo","piacciate","piacciano"],cimp:CIMP("piace"),impv:[null,"piaci","piaccia","piacciamo","piacete","piacciano"]}
+];
+const IRR_C=["--are","--ere","--ire","--isc"];
+function conjIrr(v){const f={};for(const t of SIMPLE_T) f[t.k]=v[t.k].map(x=>x===null?null:(Array.isArray(x)?x:[x]));f.part=[[v.part]];return f;}
+
+/* ================= État ================= */
+const KEY="conjit-v2";
+const rnd=n=>Math.floor(Math.random()*n);
+let S={mode:"simple",groups:{simple:["are","ere","ire","isc"],comp:["av","es"]},
+  tenses:{simple:SIMPLE_T.map(t=>t.k),comp:COMP_T.map(t=>t.k),irr:SIMPLE_T.map(t=>t.k)},
+  hint:"0",live:false,irrN:"2",
+  cur:{simple:{are:0,ere:0,ire:0,isc:0},comp:{av:0,es:0},irr:[0,1,2,3]},
+  vals:{},given:{},marks:{},shown:{}};
+try{const s=JSON.parse(localStorage.getItem(KEY)||"null");if(s)S=Object.assign(S,s);}catch(e){}
+const save=()=>{try{localStorage.setItem(KEY,JSON.stringify(S));}catch(e){}};
+
+/* tableaux affichés pour le mode courant */
+function currentGroups(){
+  const mode=S.mode;
+  if(mode==="simple") return GROUPS.filter(g=>S.groups.simple.includes(g.k)).map(g=>{
+    const v=POOL[g.k][S.cur.simple[g.k]%POOL[g.k].length];
+    return {key:g.k+":"+v[0],c:g.c,lab:g.lab,inf:v[0],fr:v[1],f:conjRegular(g.k,v)};});
+  if(mode==="comp") return CGROUPS.filter(g=>S.groups.comp.includes(g.k)).map(g=>{
+    const v=CPOOL[g.k][S.cur.comp[g.k]%CPOOL[g.k].length];
+    return {key:g.k+":"+v[0],c:g.c,lab:"auxiliaire "+g.lab,inf:v[0],fr:v[1],f:conjComp(g.k,v)};});
+  return S.cur.irr.slice(0,+S.irrN).map((ix,n)=>{const v=IRR[ix%IRR.length];
+    return {key:"irr:"+v.inf,c:IRR_C[n%4],lab:"",inf:v.inf,fr:v.fr,f:conjIrr(v),irr:true};});
+}
+function tensesOf(mode){return (mode==="comp"?COMP_T:SIMPLE_T).filter(t=>S.tenses[mode].includes(t.k));}
+
+function pickNew(){
+  const pickOther=(cur,n)=>{if(n<2)return 0;let x;do{x=rnd(n);}while(x===cur%n);return x;};
+  if(S.mode==="simple") for(const g of GROUPS) S.cur.simple[g.k]=pickOther(S.cur.simple[g.k],POOL[g.k].length);
+  else if(S.mode==="comp") for(const g of CGROUPS) S.cur.comp[g.k]=pickOther(S.cur.comp[g.k],CPOOL[g.k].length);
+  else{
+    const prev=new Set(S.cur.irr.slice(0,+S.irrN)), idx=[...IRR.keys()];
+    let fresh=idx.filter(i=>!prev.has(i)).sort(()=>Math.random()-.5);
+    if(fresh.length<4) fresh=fresh.concat(idx.filter(i=>prev.has(i)));
+    S.cur.irr=fresh.slice(0,4);
+  }
+}
+function resetMode(){
+  for(const o of [S.vals,S.marks,S.shown,S.given]) Object.keys(o).filter(k=>k.startsWith(S.mode+"|")).forEach(k=>delete o[k]);
+}
+
+/* ================= Comparaison ================= */
+const GRAVE={a:"à",e:"è",i:"ì",o:"ò",u:"ù"};
+const ELIDED=/^(fa|di|va|sta|da)['’]$/i;
+const fixApos=s=>ELIDED.test(s.trim())?s.replace("’","'"):s.replace(/([aeiou])['’`]/gi,(_,v)=>GRAVE[v.toLowerCase()]);
+const norm=s=>fixApos(s).toLowerCase().replace(/\s+/g," ").trim().replace(/^che /,"");
+const strip=s=>s.normalize("NFD").replace(/[\u0300-\u036f]/g,"").replace(/'/g,"");
+function grade(val,ans){
+  const v=norm(val); if(!v) return "";
+  if(ans.includes(v)) return "ok";
+  if(ans.some(a=>strip(a)===strip(v))) return "acc";
+  return "ko";
+}
+
+/* ================= Rendu ================= */
+const $=s=>document.querySelector(s);
+const esc=s=>String(s).replace(/&/g,"&amp;").replace(/"/g,"&quot;").replace(/</g,"&lt;");
+let lastInput=null, ANS={};
+
+function renderFilters(){
+  document.querySelectorAll(".tab").forEach(b=>b.setAttribute("aria-selected",b.dataset.mode===S.mode));
+  const irr=S.mode==="irr";
+  $("#rowGroups").classList.toggle("hidden",irr); $("#rowIrr").classList.toggle("hidden",!irr);
+  $("#irrNote").textContent=`tirés au hasard parmi ${IRR.length}`; $("#irrN").value=S.irrN;
+  if(!irr){
+    const G=S.mode==="comp"?CGROUPS:GROUPS;
+    $("#fGroups").innerHTML=G.map(g=>`<label class="chip"><input type="checkbox" data-g="${g.k}" ${S.groups[S.mode].includes(g.k)?"checked":""}> ${S.mode==="comp"?"avec "+g.lab:g.lab}</label>`).join("");
+  }
+  const T=S.mode==="comp"?COMP_T:SIMPLE_T;
+  $("#fTenses").innerHTML=T.map(t=>`<label class="chip"><input type="checkbox" data-t="${t.k}" ${S.tenses[S.mode].includes(t.k)?"checked":""}> ${t.it}</label>`).join("");
+  $("#hint").value=S.hint; $("#live").checked=S.live;
+}
+
+function cellHTML(k,ans,label){
+  ANS[k]=ans;
+  const giv=S.given[k], v=giv?ans[0]:(S.vals[k]||""), mk=giv?"given":(S.marks[k]||""), sh=S.shown[k]&&!giv;
+  const sol=(mk==="ko"||mk==="acc"||sh)?ans.join(" / "):"";
+  return `<td class="${mk}${sh?" shown":""}" data-k="${k}"><input aria-label="${esc(label)}" autocomplete="off" autocapitalize="off" autocorrect="off" spellcheck="false" value="${esc(v)}" ${giv?"readonly tabindex='-1'":""}><span class="sol">${esc(sol)}</span></td>`;
+}
+
+function renderTables(){
+  ANS={};
+  const mode=S.mode, ts=tensesOf(mode), gs=currentGroups();
+  if(!ts.length||!gs.length){$("#tables").innerHTML=`<p class="intro">Cochez au moins un groupe et un temps pour afficher le tableau.</p>`;updateScore();return;}
+  let h="";
+  for(const g of gs){
+    h+=`<section class="group"><h2><span class="sw" style="background:var(${g.c})"></span><span class="vname">${g.inf}</span> <span class="vtr">${g.fr}</span>${g.lab?` <small>— ${g.lab}</small>`:""}</h2>
+    <div class="scroll"><table style="--rowbg:var(${g.c}-bg)"><thead><tr><th></th>${ts.map(t=>`<th>${t.it}<i>${t.fr}</i></th>`).join("")}</tr></thead><tbody>`;
+    P.forEach((p,i)=>{
+      h+=`<tr><th scope="row">${p}</th>`;
+      for(const t of ts){
+        const ans=g.f[t.k][i];
+        h+=ans?cellHTML(`${mode}|${g.key}|${t.k}|${i}`,ans,`${g.inf}, ${t.it}, ${p}`):`<td class="na">—</td>`;
+      }
+      h+=`</tr>`;
+    });
+    if(g.irr) h+=`<tr class="part"><th scope="row">participe passé</th>${cellHTML(`${mode}|${g.key}|part|0`,g.f.part[0],`${g.inf}, participe passé`)}${ts.length>1?`<td class="na" colspan="${ts.length-1}"></td>`:""}</tr>`;
+    h+=`</tbody></table></div></section>`;
+  }
+  $("#tables").innerHTML=h;
+  updateScore();
+}
+
+const cellsVisible=()=>[...document.querySelectorAll("td[data-k]")];
+function markCell(td){
+  const k=td.dataset.k; if(S.given[k]) return;
+  const ans=ANS[k], r=grade(S.vals[k]||"",ans);
+  S.marks[k]=r; td.className=r+(S.shown[k]?" shown":"");
+  td.querySelector(".sol").textContent=(r==="ko"||r==="acc"||S.shown[k])?ans.join(" / "):"";
+}
+function updateScore(){
+  const tds=cellsVisible().filter(td=>!S.given[td.dataset.k]);
+  let ok=0,acc=0,ko=0;
+  tds.forEach(td=>{const m=S.marks[td.dataset.k];if(m==="ok")ok++;else if(m==="acc")acc++;else if(m==="ko")ko++;});
+  $("#score").innerHTML=tds.length?`<span class="ok">${ok}</span> justes · <span class="acc">${acc}</span> accents · <span class="ko">${ko}</span> fausses — sur ${tds.length} cases`:"";
+}
+function drawHints(){
+  Object.keys(S.given).filter(k=>k.startsWith(S.mode+"|")).forEach(k=>delete S.given[k]);
+  const pct=+S.hint/100; if(!pct) return;
+  renderTables(); // remplit ANS pour l'affichage courant
+  Object.keys(ANS).forEach(k=>{if(Math.random()<pct) S.given[k]=true;});
+}
+
+/* ================= Événements ================= */
+document.querySelectorAll(".tab").forEach(b=>b.onclick=()=>{S.mode=b.dataset.mode;save();renderFilters();renderTables();});
+$("#fGroups").onchange=e=>{const g=e.target.dataset.g,a=S.groups[S.mode];S.groups[S.mode]=e.target.checked?[...a,g]:a.filter(x=>x!==g);save();renderTables();};
+$("#fTenses").onchange=e=>{const t=e.target.dataset.t,a=S.tenses[S.mode];S.tenses[S.mode]=e.target.checked?[...a,t]:a.filter(x=>x!==t);save();renderTables();};
+$("#irrN").onchange=e=>{S.irrN=e.target.value;save();renderTables();};
+$("#hint").onchange=e=>{S.hint=e.target.value;drawHints();save();renderTables();};
+$("#live").onchange=e=>{S.live=e.target.checked;save();};
+
+const tables=$("#tables");
+tables.addEventListener("input",e=>{
+  const inp=e.target,td=inp.closest("td");if(!td)return;
+  const fixed=fixApos(inp.value);
+  if(fixed!==inp.value){const pos=Math.max(0,inp.selectionStart-(inp.value.length-fixed.length));inp.value=fixed;inp.setSelectionRange(pos,pos);}
+  const k=td.dataset.k; S.vals[k]=inp.value;
+  if(S.marks[k]){delete S.marks[k];td.className=S.shown[k]?"shown":"";if(!S.shown[k])td.querySelector(".sol").textContent="";}
+  save();updateScore();
+});
+tables.addEventListener("change",e=>{const td=e.target.closest("td");if(td&&S.live&&S.vals[td.dataset.k]){markCell(td);save();updateScore();}});
+tables.addEventListener("focusin",e=>{if(e.target.tagName==="INPUT")lastInput=e.target;});
+tables.addEventListener("keydown",e=>{
+  if(e.key!=="Enter"||e.target.tagName!=="INPUT")return;
+  e.preventDefault();
+  const all=cellsVisible().filter(c=>!S.given[c.dataset.k]);
+  const td=e.target.closest("td"), tbl=td.closest("table");
+  // ordre : colonne par colonne, de haut en bas, puis tableau suivant
+  const order=[];
+  document.querySelectorAll("#tables table").forEach(t=>{
+    const rows=[...t.tBodies[0].rows], n=rows[0].cells.length;
+    for(let c=1;c<n;c++) rows.forEach(r=>{const cell=r.cells[c];if(cell&&cell.dataset.k&&all.includes(cell))order.push(cell);});
+    rows.forEach(r=>{if(r.classList.contains("part")&&all.includes(r.cells[1]))order.push(r.cells[1]);});
+  });
+  if(S.live) e.target.dispatchEvent(new Event("change",{bubbles:true}));
+  const next=order[order.indexOf(td)+1];
+  if(next) next.querySelector("input").focus();
+});
+
+$("#bCheck").onclick=()=>{cellsVisible().forEach(markCell);save();updateScore();};
+$("#bNew").onclick=()=>{pickNew();resetMode();drawHints();save();renderTables();window.scrollTo({top:$("#tables").offsetTop-10});};
+$("#bWrong").onclick=()=>{cellsVisible().forEach(td=>{const k=td.dataset.k;if(S.marks[k]==="ko"||S.marks[k]==="acc"){delete S.vals[k];delete S.marks[k];}});save();renderTables();};
+$("#bSol").onclick=()=>{cellsVisible().forEach(td=>{S.shown[td.dataset.k]=true;});save();renderTables();};
+$("#bClear").onclick=()=>{
+  if(!confirm("Effacer toutes les réponses de ce tableau ?"))return;
+  cellsVisible().forEach(td=>{const k=td.dataset.k;delete S.vals[k];delete S.marks[k];delete S.shown[k];});
+  drawHints();save();renderTables();
+};
+
+document.querySelectorAll(".accbar button").forEach(b=>{
+  b.addEventListener("mousedown",e=>e.preventDefault());
+  b.onclick=()=>{
+    const inp=lastInput; if(!inp||inp.readOnly||!document.body.contains(inp))return;
+    const s=inp.selectionStart??inp.value.length,en=inp.selectionEnd??s;
+    inp.value=inp.value.slice(0,s)+b.dataset.c+inp.value.slice(en);
+    inp.focus();inp.setSelectionRange(s+1,s+1);
+    inp.dispatchEvent(new Event("input",{bubbles:true}));
+  };
+});
+
+/* premier lancement : verbes au hasard */
+if(!localStorage.getItem||!(()=>{try{return localStorage.getItem(KEY);}catch(e){return null;}})()){
+  const m=S.mode; for(const md of ["simple","comp","irr"]){S.mode=md;pickNew();} S.mode=m;
+}
+renderFilters();renderTables();
+if("serviceWorker" in navigator) navigator.serviceWorker.register("sw.js").catch(()=>{});
+</script>
+</body>
+</html>
